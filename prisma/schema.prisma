@@ -1,0 +1,126 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Service {
+  id String @id @default(uuid())
+   
+  title String
+  description String
+  imageUrl String @db.Text
+    
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Course {
+  id String @id @default(uuid())
+  booking Booking[]
+   
+  title String
+ 
+    
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+
+model Slider {
+  id        String   @id @default(cuid())
+  title     String
+  imageUrl  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+model About {
+  id        String   @id @default(cuid())
+  title     String
+  imageUrl  String
+  decsription String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+
+ 
+
+model Blog {
+  id String @id @default(uuid())
+   
+  title String
+  description String
+  imageUrl String @db.Text
+    
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Contact {
+  id String @id @default(uuid())
+   
+  name String
+  email String
+  subject String
+  message String
+ 
+    
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+
+model Booking {
+  id String @id @default(uuid())
+  
+ 
+  firstname String
+  lastname String
+  email String
+  mobile String
+  message String
+  courseId String
+  course Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
+    
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Seo {
+  id String @id @default(uuid())
+  
+page String
+  title String
+ description String
+    
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+model Keyword {
+  id String @id @default(uuid())
+  
+ 
+  title String
+ 
+    
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Admin {
+  id       String @id @default(uuid())
+  username String @unique
+  password String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
