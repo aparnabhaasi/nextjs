@@ -1,7 +1,8 @@
 'use client'
 import React from 'react'
-import Flatpickr from 'react-flatpickr'
-import 'flatpickr/dist/themes/light.css'
+import Flatpickr from "react-flatpickr";
+import "flatpickr/dist/flatpickr.css";
+
 
 type FlatpickrProps = {
   className?: string
