@@ -1,25 +1,19 @@
 'use client'
-import React from 'react'
-import Flatpickr from "react-flatpickr";
-import "flatpickr/dist/flatpickr.css"; // Ensure styles are included
+import Flatpickr from 'react-flatpickr'
+import 'flatpickr/dist/themes/light.css'
 
 type FlatpickrProps = {
   className?: string
-  value?: Date | Date[] | string
-  options?: Record<string, any>
+  value?: Date | [Date, Date]
+  options?: {}
   placeholder?: string
-  onChange?: (selectedDates: Date[], dateStr: string, instance: any) => void
 }
 
-const CustomFlatpickr: React.FC<FlatpickrProps> = ({ className, value, options, placeholder, onChange }) => {
+const CustomFlatpickr = ({ className, value, options, placeholder }: FlatpickrProps) => {
   return (
-    <Flatpickr
-      className={className}
-      options={options}
-      placeholder={placeholder}
-      value={value}
-      onChange={onChange}
-    />
+    <>
+      <Flatpickr className={className} data-enable-time value={value} options={options} placeholder={placeholder} />
+    </>
   )
 }
 
