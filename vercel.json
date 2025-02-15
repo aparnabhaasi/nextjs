@@ -2,11 +2,14 @@
     "builds": [
       {
         "src": "next.config.js",
-        "use": "@vercel/next"
+        "use": "@vercel/node"
       }
     ],
-    "env": {
-      "DATABASE_URL": "mysql://root@localhost:3306/sinusoidal"
-    }
+    "rewrites": [
+      {
+        "source": "/",
+        "destination": "/auth/sign-in"
+      }
+    ]
   }
   
