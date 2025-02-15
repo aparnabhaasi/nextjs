@@ -2,9 +2,13 @@
 import ComponentContainerCard from '@/components/ComponentContainerCard'
 import ReactQuill from 'react-quill'
 
+
+
 // styles
-import 'react-quill/dist/quill.snow.css'
-import 'react-quill/dist/quill.bubble.css'
+import 'quill/dist/quill.snow.css';
+import 'quill/dist/quill.bubble.css';
+
+
 
 let valueBubble = ''
 let valueSnow = ''
