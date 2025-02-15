@@ -8,8 +8,12 @@
 @import "config/variables";
 @import "config/variables-dark";
 @import 'gridjs/dist/theme/mermaid.css';
- 
-@import '~bootstrap/scss/bootstrap';
+// Override Bootstrap's display font-family
+$display-font-family: 'Your Preferred Font', sans-serif;
+
+// Import Bootstrap
+@import "~bootstrap/scss/bootstrap";
+
 
 @import "nouislider/distribute/nouislider.css";
 
