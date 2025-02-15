@@ -7,7 +7,14 @@ const nextConfig = {
   webpack: (config) => {
     config.resolve.alias['@'] = path.resolve('./src');
     return config;
-  }
+  },
+  redirects: async () => [
+    {
+      source: '/',
+      destination: '/auth/sign-in',
+      permanent: true,
+    },
+  ],
 };
 
 export default nextConfig;
