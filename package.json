@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "postinstall": "prisma generate",
-    "build": "next build",
-    "dev": "next dev",
-    "start": "next start",
-    "lint": "next lint",
-    "format": "prettier --write 'src/**/*.{ts,tsx,js,jsx}'"
-  },
+  "postinstall": "prisma generate",
+  
+  "dev": "next dev",
+  "start": "next start",
+  "lint": "next lint",
+  "format": "prettier --write 'src/**/*.{ts,tsx,js,jsx}'"
+},
+
   "dependencies": {
     "@emoji-mart/data": "^1.2.1",
     "@emoji-mart/react": "^1.1.1",
