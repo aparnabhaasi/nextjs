@@ -1,8 +1,7 @@
 'use client'
 import React from 'react'
 import Flatpickr from "react-flatpickr";
-import "flatpickr/dist/flatpickr.css";
-
+import "flatpickr/dist/flatpickr.css"; // Ensure styles are included
 
 type FlatpickrProps = {
   className?: string
@@ -16,10 +15,9 @@ const CustomFlatpickr: React.FC<FlatpickrProps> = ({ className, value, options, 
   return (
     <Flatpickr
       className={className}
-      data-enable-time
-      value={value}
       options={options}
       placeholder={placeholder}
+      value={value}
       onChange={onChange}
     />
   )
