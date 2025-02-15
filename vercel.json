@@ -1,0 +1,18 @@
+{
+    "builds": [
+      {
+        "src": "next.config.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "build": {
+      "env": {
+        "DATABASE_URL": "mysql://root@localhost:3306/sinusoidal"
+      },
+      "commands": [
+        "npx prisma generate",  
+        "next build"            
+      ]
+    }
+  }
+  
