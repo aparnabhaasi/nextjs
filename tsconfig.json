@@ -6,9 +6,9 @@
     "skipLibCheck": true,
     "strict": true,
     "noImplicitAny": false,
-    "baseUrl": ".",
+    "baseUrl": "src",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./*"]
     },
     "noEmit": true,
     "esModuleInterop": true,
