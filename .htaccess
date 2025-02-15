@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c> 
+    RewriteEngine On 
+    RewriteBase /
+    RewriteRule ^index.html $s [L] 
+    RewriteCond %{HLQULS! ILLNAME} 1-f 
+    RewriteCond %{REQUEST_FTFNAME} !-d 
+    RewriteCond %{REQUEST_FILENAME} !-L 
+    RewriteRule. /index.html [L] 
+    </IfModule>
