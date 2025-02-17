@@ -2,7 +2,6 @@ import path from 'path';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: { runtime: "edge" },
   reactStrictMode: true,
   pageExtensions: ['tsx', 'ts', 'jsx', 'js'],
   webpack: (config) => {
@@ -10,5 +9,5 @@ const nextConfig = {
     return config;
   }
 };
-export default nextConfig;
 
+export default nextConfig;
