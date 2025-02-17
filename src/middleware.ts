@@ -1,17 +1,22 @@
 import { withAuth } from 'next-auth/middleware';
 import { NextResponse } from 'next/server';
 
-export default function middleware(req) {
-  // Custom redirection logic
-  if (req.nextUrl.pathname === '/') {
-    return NextResponse.redirect(new URL('/auth/sign-in/', req.url));
+export default withAuth(
+  function middleware(req) {
+    // Custom redirection logic
+    if (req.nextUrl.pathname === '/') {
+      const url = new URL('/auth/sign-in/', req.url);
+      return NextResponse.redirect(url);
+    }
+  },
+  {
+    callbacks: {
+      authorized: ({ token }) => !!token, // Protect routes by checking token
+    },
   }
+);
 
-  // Continue with next-auth middleware
-  return withAuth(req);
-}
-
-// Configure the matcher for both root and next-auth protected routes
+// Apply the middleware to specific routes
 export const config = {
-  matcher: ['/', '/protected-route/(.*)'], // Adjust according to your protected routes
+  matcher: ['/', '/protected-route/(.*)'], // Adjust to your protected routes
 };
