@@ -46,22 +46,22 @@ const SignIn = () => {
                   <form className="authentication-form" onSubmit={handleSubmit(onSubmit)}>
                     <div className="mb-3">
                     <TextFormInput
-  control={control}
-  placeholder="Enter your username"
-  className="bg-light bg-opacity-50 border-light py-2"
-  label="Username"
-  {...register("username", { required: true })} // No need to specify name separately
-/>
+                      control={control}
+                      placeholder="Enter your username"
+                      className="bg-light bg-opacity-50 border-light py-2"
+                      label="Username"
+                      {...register("username", { required: true })} // No need to specify name separately
+                    />
                     </div>
                     <div className="mb-3">
                     <TextFormInput
-  control={control}
-  placeholder="Enter your password"
-  className="bg-light bg-opacity-50 border-light py-2"
-  label="Password"
-  type="password"
-  {...register("password", { required: true })} // No need to specify name separately
-/>
+                      control={control}
+                      placeholder="Enter your password"
+                      className="bg-light bg-opacity-50 border-light py-2"
+                      label="Password"
+                      type="password"
+                      {...register("password", { required: true })} // No need to specify name separately
+                    />
                     </div>
                     {error && <p className="text-danger text-center">{error}</p>}
                     <div className="mb-1 text-center d-grid">
