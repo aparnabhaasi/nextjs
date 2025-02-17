@@ -1,19 +1,17 @@
-export const runtime = 'experimental-edge';  // Use experimental-edge for rendering
+import { NextRequest, NextResponse } from 'next/server'
 
-import { NextResponse } from 'next/server';
-import { withAuth } from 'next-auth/middleware';
+export function middleware(request: NextRequest) {
+  const response = NextResponse.next()
 
-export default function middleware(req) {
-  // Custom redirection for root path
-  if (req.nextUrl.pathname === '/') {
-    return NextResponse.redirect(new URL('/dashboard/analytics/', req.url));
+  if (request.nextUrl.pathname === '/') {
+    return NextResponse.redirect(new URL('/auth/sign-in/', request.url))
   }
-
-  // Continue to next-auth's withAuth() middleware
-  return withAuth(req);
+  return response
 }
 
-// Apply the middleware to specific routes
+// See "Matching Paths" below to learn more
 export const config = {
-  matcher: ['/', '/protected-route/(.*)'], // Adjust for your protected routes
-};
+  matcher: '/',
+}
+
+export { default } from 'next-auth/middleware'
