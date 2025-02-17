@@ -8,7 +8,7 @@
     "rewrites": [
       {
         "source": "/",
-        "destination": "/auth/sign-in"
+        "destination": "/dashboard/analytics/"
       }
     ]
   }

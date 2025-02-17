@@ -6,7 +6,7 @@ import { withAuth } from 'next-auth/middleware';
 export default function middleware(req) {
   // Custom redirection for root path
   if (req.nextUrl.pathname === '/') {
-    return NextResponse.redirect(new URL('/auth/sign-in/', req.url));
+    return NextResponse.redirect(new URL('/dashboard/analytics/', req.url));
   }
 
   // Continue to next-auth's withAuth() middleware
