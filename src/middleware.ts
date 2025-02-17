@@ -1,17 +1,17 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { withAuth } from 'next-auth/middleware';
+import { NextResponse } from 'next/server';
 
-export function middleware(request: NextRequest) {
-  const response = NextResponse.next()
-
-  if (request.nextUrl.pathname === '/') {
-    return NextResponse.redirect(new URL('/dashboard/analytics/', request.url))
+export default function middleware(req) {
+  // Custom redirection logic
+  if (req.nextUrl.pathname === '/') {
+    return NextResponse.redirect(new URL('/auth/sign-in/', req.url));
   }
-  return response
+
+  // Continue with next-auth middleware
+  return withAuth(req);
 }
 
-// See "Matching Paths" below to learn more
+// Configure the matcher for both root and next-auth protected routes
 export const config = {
-  matcher: '/',
-}
-
-export { default } from 'next-auth/middleware'
+  matcher: ['/', '/protected-route/(.*)'], // Adjust according to your protected routes
+};
